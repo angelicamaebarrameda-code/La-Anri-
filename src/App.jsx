@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home.jsx';
 import ProductList from './components/ProductList.jsx';
 import ProductDetail from './components/ProductDetails.jsx';
 import AddProduct from './components/AddProduct.jsx';
@@ -80,12 +81,13 @@ function App() {
       <header>
         <h1>La Anri Cosmetics</h1>
         <nav>
-          <Link to="/">Products</Link> | <Link to="/add">Add Product</Link> | <Link to="/cart">Cart ({cart.length})</Link>
+          <Link to="/">Home</Link> | <Link to="/products">Products</Link> | <Link to="/add">Add Product</Link> | <Link to="/cart">Cart ({cart.length})</Link>
         </nav>
         <p>Overall Inventory Value: ${overallTotal.toFixed(2)}</p>
       </header>
       <Routes>
-        <Route path="/" element={<ProductList products={products} addToCart={addToCart} cart={cart} updateCartQuantity={updateCartQuantity} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductList products={products} addToCart={addToCart} cart={cart} updateCartQuantity={updateCartQuantity} />} />
         <Route path="/product/:id" element={<ProductDetail products={products} />} />
         <Route path="/add" element={<AddProduct addProduct={addProduct} />} />
         <Route path="/cart" element={<Cart cart={cart} updateCartQuantity={updateCartQuantity} />} />
