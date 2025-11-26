@@ -1,0 +1,208 @@
+/* Light Minimalist CSS for La Anri Cosmetics */
+/* Global Styles */
+.app {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff; /* Pure white background */
+  color: #333333; /* Soft dark gray text */
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f8f8; /* Very light gray */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+header h1 {
+  color: #ff69b4; /* Soft pink for branding */
+  font-weight: 300; /* Light weight for minimalism */
+  margin: 0 0 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #666666; /* Light gray */
+  font-weight: 400;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover, nav a:focus {
+  color: #ffffff;
+  background-color: #ff69b4; /* Hover in brand pink */
+}
+
+/* Sections */
+.product-list, .add-product {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fafafa; /* Very light gray for sections */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto; /* Scroll on small screens */
+  display: block;
+}
+
+th, td {
+  border: 1px solid #e0e0e0; /* Light border */
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle; /* Better alignment */
+}
+
+th {
+  background-color: #f0f0f0; /* Subtle header background */
+  font-weight: 500;
+}
+
+.low-stock {
+  background-color: #ffe6e6 !important; /* Light red for low stock, with !important for override */
+}
+
+/* Cart Controls */
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-controls button {
+  min-width: 30px; /* Consistent button size */
+}
+
+/* Cart Items */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  gap: 15px;
+}
+
+.cart-item img {
+  flex-shrink: 0;
+}
+
+.cart-item p {
+  flex: 1;
+  margin: 0;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+}
+
+input, textarea, select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #ff69b4; /* Focus in brand color */
+  outline: none;
+}
+
+/* Buttons */
+button {
+  padding: 10px;
+  background-color: #ff69b4; /* Brand pink */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, button:focus {
+  background-color: #ff1493; /* Darker pink on hover/focus */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) { /* Tablets and smaller */
+  .app {
+    padding: 10px;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  nav {
+    flex-direction: column; /* Stack nav links */
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  table {
+    font-size: 14px; /* Smaller text */
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .cart-item {
+    flex-direction: column; /* Stack cart items vertically */
+    text-align: center;
+  }
+
+  form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) { /* Mobiles */
+  header h1 {
+    font-size: 24px;
+  }
+
+  .product-list, .add-product {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 12px; /* Larger touch targets */
+  }
+}
