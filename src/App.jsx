@@ -5,6 +5,7 @@ import ProductList from './components/ProductList.jsx';
 import ProductDetail from './components/ProductDetails.jsx';
 import AddProduct from './components/AddProduct.jsx';
 import Cart from './components/cart.jsx';
+import Notification from './components/Notification.jsx';
 import './styles.css';
 
 function App() {
@@ -56,6 +57,12 @@ function App() {
   ]);
 
   const [cart, setCart] = useState([]);
+  const [notification, setNotification] = useState(null);
+
+  const showNotification = (message, type = 'success', duration = 3000) => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), duration + 50);
+  };
 
   const addToCart = (product) => {
     const existingItem = cart.find((item) => item.id === product.id);
@@ -64,6 +71,7 @@ function App() {
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
+    showNotification(`${product.name} added to cart`, 'success');
   };
 
   const updateCartQuantity = (id, delta) => {
@@ -72,12 +80,14 @@ function App() {
 
   const addProduct = (newProduct) => {
     setProducts([...products, { ...newProduct, id: products.length + 1 }]);
+    showNotification(`${newProduct.name} added to products`, 'success');
   };
 
   const overallTotal = products.reduce((total, product) => total + (product.price * product.quantity), 0);
 
   return (
     <div className="app">
+      <Notification message={notification?.message} type={notification?.type} onClose={() => setNotification(null)} />
       <header>
         <h1>La Anri Cosmetics</h1>
         <nav>
